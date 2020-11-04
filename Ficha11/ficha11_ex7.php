@@ -17,9 +17,20 @@
         array(8,1),
         array(9,1),
     );
+
+    $maior = 0;
     $soma = 0;
-    $maior = max($array);
     $segundoMaior = $array[0][0];
+
+    foreach ($array as $val){
+	foreach($val as $key=>$val1){
+		if ($val1 > $maior)
+	 	    {
+                $maior = $val1;
+    	    }
+	    }   	
+    }
+
     for ($linha=0; $linha<10; $linha++) {
         for ($coluna=0; $coluna<2; $coluna++) {
             if($segundoMaior < $array[$linha][$coluna] && $array[$linha][$coluna]<$maior){
@@ -28,8 +39,10 @@
             $soma += $array[$linha][$coluna];
         }
     }
-    echo "$soma<br>";
-    echo "$segundoMaior";
+
+    echo "Maior: $maior<br>";
+    echo "Soma: $soma<br>";
+    echo "Segundo maior: $segundoMaior";
 ?>
 </body>
 </html>
