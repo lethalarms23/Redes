@@ -3,8 +3,8 @@
     $Produto = 1;
 
     if(count($_POST)){
-        if(is_numeric($_POST["txt_fim"]) && $_POST["txt_fim"] >=0){
-            $Fim = $_POST["txt_fim"];
+        if(is_numeric($_POST["rbt_valor"]) && $_POST["rbt_valor"] >=0){
+            $Fim = $_POST["rbt_valor"];
             for($i = 1;$i<=$Fim;$i++){
                 echo $i . " ";
                 $Soma = $Soma + $i;
