@@ -8,7 +8,7 @@
             for($i = 1;$i<=$Fim;$i++){
                 echo $i . " ";
                 $Soma = $Soma + $i;
-                $Produto = $Produto + $i;
+                $Produto = $Produto * $i;
             }
             echo "<br>";
             echo "<br>";
