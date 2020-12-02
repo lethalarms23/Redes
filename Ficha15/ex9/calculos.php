@@ -14,5 +14,5 @@
      }
      else if($valor == 5){
          echo "Aluno MUITO BOM com nota de 5 valor";
-     }
+     } 
 ?>
