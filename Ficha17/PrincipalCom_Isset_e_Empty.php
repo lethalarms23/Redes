@@ -3,7 +3,7 @@ echo "<span style='color:blue;'><h3><b>************************************Pagin
 session_name('VariaveisNomeIdade');
 session_start();
 
-if(isset($_POST['btn_enviarr']) && !empty($_POST['txt_nome']) && !empty($_POST['txt_idade'])){
+if(isset($_POST['btn_enviar']) && !empty($_POST['txt_nome']) && !empty($_POST['txt_idade'])){
     $nome = $_POST['txt_nome'];
     $idade = $_POST['txt_idade'];
 
