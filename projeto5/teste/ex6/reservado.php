@@ -13,7 +13,7 @@
             $nome = $_SESSION['Nome'];
             $idade = $_SESSION['Idade'];
             echo "Bem Vindo(a): ".$nome."<br>";
-            echo "Sua idade: ".$idade."<br>";
+            echo "Sua idade: ".$idade." Anos<br>";
         ?>
     </body>
 </html>

@@ -13,6 +13,7 @@
                 $datanasc = new Datetime($_POST['datanasc']);
                 $dataAtual = new Datetime(date('Y-m-d'));
                 $diff = $dataAtual->diff($datanasc);
+                $idade = $diff->y;
                 printf('Sua idade: %d anos, %d meses, %d dias <br>', $diff->y, $diff->m, $diff->d);
                 if($diff->y >= 18){
                     echo "Já tem idade para votar <br>";
@@ -21,7 +22,7 @@
                     session_name('VariaveisNomeIdade');
                     session_start();
                     $_SESSION['Nome'] = $nome;
-                    $_SESSION['Idade'] = $_POST['datanasc'];
+                    $_SESSION['Idade'] = $idade;
                     echo "<a href='reservado.php'>Ir para página reservada</a>";
                 }
             }

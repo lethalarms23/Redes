@@ -9,7 +9,19 @@
     <body>
         <?php
           $diasSemana = array('segunda','terça','quarta','quinta','sexta','sábado','domingo');
-          $mesesAno = array('janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro');
+          $mesesAno = array(
+            'janeiro',
+            'fevereiro',
+            'março',
+            'abril',
+            'maio',
+            'junho',
+            'julho',
+            'agosto',
+            'setembro',
+            'outubro',
+            'novembro',
+            'dezembro');
         ?>
         <form action="resultado.php" method="post">        
         Nome: <input type="text" name="nome"><br>
