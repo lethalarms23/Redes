@@ -58,5 +58,6 @@
         echo '<h2>Parece que o filme selecionado não existe. <br>Confirme a sua seleção.</h2>';
     }
 ?>
+<a href="filmes_edit.php">Editar livro</a>
 </body>
 </html>
