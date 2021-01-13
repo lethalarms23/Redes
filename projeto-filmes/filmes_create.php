@@ -19,15 +19,15 @@
         }
 
         if(isset($_POST['quantidade']) && is_numeric($_POST['quantidade'])){
-            $sinopse = $_POST['quantidade'];
+            $quantidade = $_POST['quantidade'];
         }
 
         if(isset($_POST['idioma'])){
-            $sinopse = $_POST['idioma'];
+            $idioma = $_POST['idioma'];
         }
 
         if(isset($_POST['data_lancamento'])){
-            $sinopse = $_POST['data_lancamento'];
+            $data_lancamento = $_POST['data_lancamento'];
         }
 
         $con = new mysqli("localhost","root","","filmes");
@@ -41,7 +41,7 @@
             $sql = 'insert into filmes(titulo,sinopse,quantidade,idioma,data_lancamento) values(?,?,?,?,?)';
             $stm = $con->prepare($sql);
             if($stm!=false){
-                $stm->bind_param('sssis',$titulo,$sinopse,$quantidade,$idioma,$data_lancamento);
+                $stm->bind_param('ssiss',$titulo,$sinopse,$quantidade,$idioma,$data_lancamento);
                 $stm->execute();
                 $stm->close();
                 
