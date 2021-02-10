@@ -24,6 +24,7 @@
         }
         $stm->close();
     ?>
+    <a href="index.php">Index</a>
 <br>
 </body>
 </html>
