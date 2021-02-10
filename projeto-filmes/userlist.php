@@ -13,23 +13,17 @@
     <title>Filmes</title>
     </head>
     <body>
-    <h1>Lista de filmes</h1>
+    <h1>Lista de Utilizadores</h1>
     <?php
-        $stm = $con->prepare('select * from filmes');
+        $stm = $con->prepare('select * from utilizadores');
         $stm->execute();
         $res=$stm->get_result();
         while($resultado = $res->fetch_assoc()){
-            echo '<a href="filmes_show.php?filme='.$resultado['id_filme'].'">';
-            echo $resultado['titulo'];
-            echo '</a>';
+            echo $resultado['user_name'];
             echo '<br>';
         }
         $stm->close();
     ?>
-    <a href="filmes_create.php">Adicionar livros</a><br>
-    <a href="login.php">Login</a><br>
-    <a href="register.php">Register</a><br>
-    <a href="userlist.php">Listagem de utilizadores</a><br>
 <br>
 </body>
 </html>

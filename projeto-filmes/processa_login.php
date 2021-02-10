@@ -18,10 +18,13 @@
                 $res=$stm->get_result();
                 if($res->num_rows==1){
                     $_SESSION['login']="correto";
+                    echo '<script>alert("Login Correto");</script>';
                 }
                 else{
                     $_SESSION['login']="incorreto";
+                    echo '<script>alert("Login Incorreto");</script>';
                 }
+                header("refresh:5;url=index.php");
             }
             else{
                 echo "Ocorreu um erro no acesso à base de dados.<br>STM:".$con->connect_error;
