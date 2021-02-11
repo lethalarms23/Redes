@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $con = new mysqli("localhost","root","","filmes");
     if($con->connect_errno!=0){
         echo "Ocorreu um erro no acesso à base de dados ".$con->connect_error;
@@ -25,11 +26,22 @@
             echo '<br>';
         }
         $stm->close();
+        echo "<br>";
+        $stm = $con->prepare('select * from utilizadores');
+        $stm->execute();
+        $res=$stm->get_result();
+        while($resultado = $res->fetch_assoc()){
+            if($resultado['id'] == $_SESSION['id_user']){
+                echo '<a href="user_edit.php?user='.$resultado['id'].'">Editar User</a><br>';
+            }
+        }
+        $stm->close();
     ?>
     <a href="filmes_create.php">Adicionar livros</a><br>
     <a href="login.php">Login</a><br>
     <a href="register.php">Register</a><br>
     <a href="userlist.php">Listagem de utilizadores</a><br>
+    
 <br>
 </body>
 </html>
