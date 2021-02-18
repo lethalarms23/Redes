@@ -27,21 +27,43 @@
         }
         $stm->close();
         echo "<br>";
+        ?>
+        <h1>Lista de utilizadores</h1>
+        <?php
         $stm = $con->prepare('select * from utilizadores');
         $stm->execute();
         $res=$stm->get_result();
         while($resultado = $res->fetch_assoc()){
+            echo $resultado['user_name'];
+            echo '<br>';
             if($resultado['id'] == $_SESSION['id_user']){
                 echo '<a href="user_edit.php?user='.$resultado['id'].'">Editar User</a><br>';
             }
         }
         $stm->close();
+        echo "<br>";
+        ?>
+        <h1>Lista de utilizadores</h1>
+        <?php
+        $stm = $con->prepare('select * from atores');
+        $stm->execute();
+        $res=$stm->get_result();
+        while($resultado = $res->fetch_assoc()){
+            echo '<a href="atores_show.php?ator='.$resultado['id_ator'].'">';
+            echo $resultado['nome'];
+            echo '</a>';
+            echo '<br>';
+        }
+        $stm->close();
     ?>
-    <a href="filmes_create.php">Adicionar livros</a><br>
+    <br>
+    <hr>
+    <a href="filmes_create.php">Adicionar Filmes</a><br>
+    <a href="atores_create.php">Adicionar Atores</a><br>
+    <a href="userlist.php">Listagem de utilizadores</a><br>
+    <a href="atoresList.php">Listagem de autores</a><br>
     <a href="login.php">Login</a><br>
     <a href="register.php">Register</a><br>
-    <a href="userlist.php">Listagem de utilizadores</a><br>
-    
 <br>
 </body>
 </html>
