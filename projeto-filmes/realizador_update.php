@@ -1,4 +1,5 @@
 <?php
+include "css.php";
     $idRealizador=$_GET['realizador'];
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $nome = "";

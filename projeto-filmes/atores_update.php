@@ -1,4 +1,5 @@
 <?php
+include "css.php";
     $idAtor=$_GET['ator'];
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $nome = "";

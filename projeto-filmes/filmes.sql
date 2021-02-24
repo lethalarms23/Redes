@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Fev-2021 às 10:13
+-- Tempo de geração: 24-Fev-2021 às 11:50
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.0
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `filmes`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `atores`
+--
+
+CREATE TABLE `atores` (
+  `id_ator` int(11) NOT NULL,
+  `nome` varchar(60) NOT NULL,
+  `data_nascimento` date NOT NULL,
+  `nacionalidade` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `atores`
+--
+
+INSERT INTO `atores` (`id_ator`, `nome`, `data_nascimento`, `nacionalidade`) VALUES
+(1, 'Atorrrrrrrrrr', '2021-02-09', 'ass');
 
 -- --------------------------------------------------------
 
@@ -47,10 +67,31 @@ INSERT INTO `filmes` (`id_filme`, `titulo`, `sinopse`, `quantidade`, `idioma`, `
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `realizadores`
+--
+
+CREATE TABLE `realizadores` (
+  `id_realizador` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `nacionalidade` varchar(20) NOT NULL,
+  `data_nascimento` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `realizadores`
+--
+
+INSERT INTO `realizadores` (`id_realizador`, `nome`, `nacionalidade`, `data_nascimento`) VALUES
+(3, 'realizador111', 'asd', '2021-02-16');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `utilizadores`
 --
 
 CREATE TABLE `utilizadores` (
+  `id` int(11) NOT NULL,
   `user_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -59,13 +100,19 @@ CREATE TABLE `utilizadores` (
 -- Extraindo dados da tabela `utilizadores`
 --
 
-INSERT INTO `utilizadores` (`user_name`, `password`) VALUES
-('abcd', '12345'),
-('qwerty', '12345');
+INSERT INTO `utilizadores` (`id`, `user_name`, `password`) VALUES
+(3, 'lethalarms2', '$2y$10$2AKe.IiczbJKhMlLOOEs1O8KoasXm75DZNwhx3LDzjWpUCpl8Az7u'),
+(4, '12345', '$2y$10$tQYBqEcvbozLhNzsjtNph.lFhx/Px7i87ssCrfQ/OrxIHKbzm784G');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `atores`
+--
+ALTER TABLE `atores`
+  ADD PRIMARY KEY (`id_ator`);
 
 --
 -- Índices para tabela `filmes`
@@ -74,14 +121,44 @@ ALTER TABLE `filmes`
   ADD PRIMARY KEY (`id_filme`);
 
 --
+-- Índices para tabela `realizadores`
+--
+ALTER TABLE `realizadores`
+  ADD PRIMARY KEY (`id_realizador`);
+
+--
+-- Índices para tabela `utilizadores`
+--
+ALTER TABLE `utilizadores`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `atores`
+--
+ALTER TABLE `atores`
+  MODIFY `id_ator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `id_filme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_filme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `realizadores`
+--
+ALTER TABLE `realizadores`
+  MODIFY `id_realizador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `utilizadores`
+--
+ALTER TABLE `utilizadores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

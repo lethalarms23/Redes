@@ -1,3 +1,4 @@
+<?php include "css.php"; ?>
 <!DOCTYPOE html>
 <html>
 <head>

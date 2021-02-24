@@ -1,4 +1,5 @@
 <?php
+    include "css.php";
     session_start();
     $con = new mysqli("localhost","root","","filmes");
     if($con->connect_errno!=0){

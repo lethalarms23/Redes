@@ -1,4 +1,5 @@
-<!DOCTYPOE html>
+<?php include "css.php"; ?>
+<!DOCTYPE html>
 <html>
 <head>
 </head>
