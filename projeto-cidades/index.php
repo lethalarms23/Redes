@@ -15,12 +15,13 @@
 </head>
 <body class="bg-dark">
 <table class="table table-dark table-striped">
+<tr></tr>
 <tr>
 <?php
-    if($_SESSION['login']== "correto" && isset($_SESSION['login'])){
-        ?>
-        <td style="width:1%"><span><?php echo $_SESSION['id_user'] ?></span>
-        <span><a href="processa_logout.php">Logout</a></span></td>
+        if(isset($_SESSION['login']) && $_SESSION['login']== "correto" && isset($_SESSION['login'])){
+            ?>
+            <td style="width:1%"><span><?php echo $_SESSION['nome'] ?></span>
+            <span><a href="processa_logout.php">Logout</a></span></td>
 <?php
     }
     else{
@@ -33,7 +34,7 @@
 <th style="text-align: center" scope="col">
     <h3>Cidades</h3>
 </th>
-<td style="width:8%"><span><a href="cidades_create.php">Adicionar Cidade</a></span><br><span><a href="">Adicionar Locais</a></span></td>
+<td style="width:8%"><span><a href="cidades_create.php">Adicionar Cidade</a></span><br><span><a href="locais_create.php">Adicionar Locais</a></span></td>
 </tr>
 <tbody>
 <tr>
@@ -46,6 +47,30 @@
         while($resultado = $res->fetch_assoc()){
             echo '<td>';
             echo '<a href="cidades_show.php?cidade='.$resultado['id_cidade'].'">'.$resultado['cidade'];
+            echo '</td>';
+        }
+    }
+?>
+</th>
+</tr>
+</tbody>
+<tr></tr>
+<td style="width:1%"></td>
+<th style="text-align: center" scope="col">
+    <h3>Locais</h3>
+</th>
+<td style="width:8%"></td>
+<tbody>
+<tr>
+<th>
+<?php
+    $stm = $con->prepare('select * from locaislazer');
+    $stm->execute();
+    $res=$stm->get_result();
+    if($stm!=false){
+        while($resultado = $res->fetch_assoc()){
+            echo '<td>';
+            echo '<a href="locais_show.php?local='.$resultado['id'].'">'.$resultado['local'];
             echo '</td>';
         }
     }

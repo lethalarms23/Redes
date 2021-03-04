@@ -6,13 +6,13 @@ include "css.php";
     }
     if($_SESSION['login']== "correto" && isset($_SESSION['login'])){
         if($_SERVER['REQUEST_METHOD']=="GET"){
-            if(!isset($_GET['cidade']) || !is_numeric($_GET['cidade'])){
-                echo '<script>alert("Erro ao abrir cidade");</script>';
+            if(!isset($_GET['local']) || !is_numeric($_GET['local'])){
+                echo '<script>alert("Erro ao abrir local");</script>';
                 echo 'Aguarde um momento. A reencaminhar página';
                 header("refresh:5;url=index.php");
                 exit();
             }
-            $idCidade=$_GET['cidade'];
+            $idLocal=$_GET['local'];
             $con = new mysqli("localhost","root","","projeto_cidades");
     
             if($con->connect_errno!=0){
@@ -20,13 +20,13 @@ include "css.php";
                 exit();
             }
             else{
-                $sql = 'select * from cidades where id_cidade = ?';
+                $sql = 'select * from locaislazer where id = ?';
                 $stm = $con->prepare($sql);
                 if($stm!=false){
-                    $stm->bind_param('i',$idCidade);
+                    $stm->bind_param('i',$idLocal);
                     $stm->execute();
                     $res=$stm->get_result();
-                    $cidade = $res->fetch_assoc();
+                    $local = $res->fetch_assoc();
                     $stm->close();
                 }
                 else{
@@ -47,17 +47,17 @@ include "css.php";
 <title>Detalhes</title>
 </head>
 <body>
-<h1 style="color: white">Detalhes da Cidade</h1>
+<h1 style="color: white">Detalhes do Local</h1>
 <?php
-    if(isset($cidade)){
+    if(isset($local)){
         echo '<br>';
-        echo "<h4 style='color: white'>Cidade: ".$cidade['cidade']."</h4>";
+        echo "<h4 style='color: white'>Local: ".$local['local']."</h4>";
     }
     else{
-        echo '<h2>Parece que a Cidade selecionada não existe. <br>Confirme a sua seleção.</h2>';
+        echo '<h2>Parece que o Local selecionada não existe. <br>Confirme a sua seleção.</h2>';
     }
-    echo '<a href="cidades_edit.php?cidade='.$cidade['id_cidade'].'">Editar Cidade</a><br>';
-    echo '<a href="cidades_delete.php?cidade='.$cidade['id_cidade'].'">Eliminar Cidade</a>';
+    echo '<a href="locais_edit.php?local='.$local['id'].'">Editar Local</a><br>';
+    echo '<a href="locais_delete.php?local='.$local['id'].'">Eliminar Local</a>';
 ?>
 </body>
 </html>

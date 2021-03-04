@@ -1,5 +1,5 @@
 <?php
-include "css.php";
+	include "css.php";
 	session_start();
 	if($_SERVER['REQUEST_METHOD']=="POST"){
 		
@@ -19,15 +19,15 @@ include "css.php";
 					$stm->bind_param("s",$utilizador);
 					$stm->execute();
 					$res=$stm->get_result();
-
 					$util=$res->fetch_assoc();
-					$stm->close();
 					$password_encriptada=$util['password'];
 					$verify = password_verify($password, $password_encriptada);
 					$_SESSION['id_user']=$util['id'];
-					
+					$nome = $util['nome'];
+					$stm->close();
 					if($verify==True){
 						$_SESSION['login']="correto";
+						$_SESSION['nome']=$nome;
                         echo '<script>alert("Login Correto");</script>';
 					}
 					else{
